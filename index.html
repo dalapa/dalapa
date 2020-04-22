@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
@@ -128,10 +129,13 @@
                     <a class="nav-link" data-toggle="tab" href="#pantau">Pantau</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#messages">?</a>
+                    <a class="nav-link" data-toggle="tab" href="#dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#livechat">?</a>
+                    <a class="nav-link" data-toggle="tab" href="#bulk_uim">Bulk UIM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#ont_discovery">ONT Discovery</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -166,12 +170,33 @@
                             class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
                     </div>
                 </div>
-                <div class="tab-pane fade" id="messages">
+                <div class="tab-pane fade" id="dashboard">
+                    <div class="d-flex flex-column flex-lg-row">
+                        <div>
+                            <h2>Dashboard</h2>
+                            <p class="lead">Uniquely underwhelm premium outsourcing with proactive leadership skills.
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu
+                                pellentesque pretium, nisi nisi fermentum enim, et sagittis dolor nulla vel sapien.
+                                Vestibulum sit amet mattis ante. Ut placerat dui eu nulla
+                                congue tincidunt ac a nibh. Mauris accumsan pulvinar lorem placerat volutpat. Praesent
+                                quis facilisis elit. Sed condimentum neque quis ex porttitor,
+                            </p>
+                            <p> malesuada faucibus augue aliquet. Sed elit est, eleifend sed dapibus a, semper a eros.
+                                Vestibulum blandit vulputate pharetra. Phasellus lobortis leo a nisl euismod, eu
+                                faucibus justo sollicitudin. Mauris consectetur, tortor
+                                sed tempor malesuada, sem nunc porta augue, in dictum arcu tortor id turpis. Proin
+                                aliquet vulputate aliquam.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="bulk_uim">
                     <div class="d-flex flex-column flex-lg-row">
                         <img src="images/graphic.png" alt="graphic"
                             class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
                         <div>
-                            <h2>Realtime Messaging service</h2>
+                            <h2>Bulk UIM</h2>
                             <p class="lead">Uniquely underwhelm premium outsourcing with proactive leadership skills.
                             </p>
                             <p>
@@ -188,10 +213,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="livechat">
+                <div class="tab-pane fade" id="ont_discovery">
                     <div class="d-flex flex-column flex-lg-row">
                         <div>
-                            <h2>Live chat when you needed</h2>
+                            <h2>ONT discovery</h2>
                             <p class="lead">Uniquely underwhelm premium outsourcing with proactive leadership skills.
                             </p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu
@@ -207,8 +232,6 @@
                                 aliquet vulputate aliquam.
                             </p>
                         </div>
-                        <img src="images/graphic.png" alt="graphic"
-                            class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
                     </div>
                 </div>
             </div>
@@ -225,7 +248,6 @@
                         <div class="box-icon"><span class="ti-rocket gradient-fill ti-3x"></span></div>
                         <h2>Daftarkan Diri Anda</h2>
                         <p class="mb-4">Biarkan Dalapa membantu validasi Anda. </p>
-                        <a href="#" class="btn btn-primary">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -238,10 +260,11 @@
                 <h3>Tampilan Dalapa</h3>
             </div>
             <div class="img-gallery owl-carousel owl-theme">
-                <img src="images/screen1.png" alt="image">
-                <img src="images/screen2.png" alt="image">
-                <img src="images/screen3.png" alt="image">
-                <img src="images/screen4.png" alt="image">
+                <img class="image-popup-no-margins" href="images/preview_1.jpg" src="images/preview_1.jpg" alt="image">
+                <img class="image-popup-no-margins" href="images/preview_2.jpg" src="images/preview_2.jpg" alt="image">
+                <img class="image-popup-no-margins" href="images/preview_3.jpg" src="images/preview_3.jpg" alt="image">
+                <img class="image-popup-no-margins" href="images/preview_4.jpg" src="images/preview_4.jpg" alt="image">
+                <img class="image-popup-no-margins" href="images/preview_5.jpg" src="images/preview_5.jpg" alt="image">
             </div>
         </div>
     </div>
@@ -300,7 +323,23 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/script.js"></script>
-
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script>
+        $('.image-popup-no-margins').magnificPopup({
+          type: 'image',
+          closeOnContentClick: true,
+          closeBtnInside: false,
+          fixedContentPos: true,
+          mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+          image: {
+            verticalFit: true
+          },
+          zoom: {
+            enabled: true,
+            duration: 300 // don't foget to change the duration also in CSS
+          }
+        });
+    </script>
 </body>
 
 </html>

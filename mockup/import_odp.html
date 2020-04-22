@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147600577-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-147600577-2');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="account" data="2169">
+    <meta name="witel" data="">
+    <title>DALAPA - Data Lapangan</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="https://dalapa.id/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://dalapa.id/assets/css/nifty.min.css" rel="stylesheet">
+    <link id="theme" href="https://dalapa.id/assets/css/themes/type-e/theme-well-red.min.css" rel="stylesheet">
+    <link href="./assets/plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
+    <style>
+        body { padding-right: 0 !important }
+        .modal-open {
+            padding-right: 0px !important;
+        }
+        .modal {
+            overflow-y:auto;
+        }
+    </style>
+    <link href="https://dalapa.id/assets/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="https://dalapa.id/assets/plugins/datatables/extensions/Buttons/css/buttons.dataTables.min.css" rel="stylesheet">
+<link href="https://dalapa.id/assets/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css" rel="stylesheet">
+<style>
+    .label-custom{
+        font-size: 85%;
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-header">
+                    <a href="https://dalapa.id" class="navbar-brand">
+                        <img src="https://dalapa.id/assets/img/dalapa_web.png" alt="Nifty Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text">DALAPA</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content">
+                    <ul class="nav navbar-top-links">
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="ti-menu"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="custom-search-form">
+                                <label class="btn btn-trans" for="search-input" data-toggle="collapse" data-target="#nav-searchbox">
+                                    <i class="ti-search"></i>
+                                </label>
+                                <form>
+                                    <div class="search-container collapse" id="nav-searchbox">
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links">
+                        <li>
+                            <a href="#" class="aside-toggle">
+                                <i class="ti-more"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="boxed">
+            <div id="content-container">
+                <div id="page-head">
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Data Import ODP</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="https://dalapa.id"><i class="ti-home"></i></a></li>
+        <li><a href="#">Data Import</a></li>
+        <li class="active">ODP</li>
+    </ol>
+</div>
+                <div id="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="panel-control">
+                        <ul class="pager pager-rounded">
+                            <li><a data-target="#modal-help" data-toggle="modal" href="#" class="btn-success" id="bantuanImport">Bantuan</a></li>
+                            <li><a href="https://dalapa.id/format_import/odp.xlsx" class="btn-warning">Unduh Format
+                                    Import</a></li>
+                            <li><a data-target="#modal-form" data-toggle="modal" href="#" class="btn-primary" id="formImport">Kirim Data Import</a></li>
+                        </ul>
+                    </div>
+                    <h3 class="panel-title">Data Import ODP</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-condensed" id="table-import-odp">
+                            <thead>
+                                <tr>
+                                    <th><center>Tanggal Import</center></th>
+                                    <th><center>File</center></th>
+                                    <th><center>Eksekutor</center></th>
+                                    <th><center>Total Data ODP</center></th>
+                                    <th><center>Tereksekusi</center></th>
+                                    <th><center>Error</center></th>
+                                    <th style="white-space:nowrap;width:1%;"><center>Status</center></th>
+                                    <th style="white-space:nowrap;width:1%;"><center>Action</center></th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-import-odp">
+                                <tr>
+                                    <td colspan="8">
+                                        <b>
+                                            <center>Sedang Mengambil Data, Mohon Tunggu Sebentar....</center>
+                                        </b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <div id="mainnav-profile" class="mainnav-profile">
+                                    <div class="profile-wrap text-center">
+                                        <div class="pad-btm">
+                                            <img class="img-circle img-md" src="https://dalapa.id/assets/img/profile-photos/1.png" alt="Profile Picture">
+                                        </div>
+                                        <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                            <p class="mnp-name">Amoeba Demo</p>
+                                            <span class="mnp-desc"></span>
+                                        </a>
+                                    </div>
+                                    <div id="profile-nav" class="collapse list-group bg-trans"></div>
+                                </div>
+                                <ul id="mainnav-menu" class="list-group">
+                                    <li class="list-header">NAVIGASI</li>
+                                    <li class="">
+                                        <a href="./mapping-odp.html">
+                                            <i class="ti-target"></i>
+                                            <span class="menu-title">Mapping OLT</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="./mapping-pelanggan.html">
+                                            <i class="ti-target"></i>
+                                            <span class="menu-title">Mapping ODP</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="./import_odp.html">
+                                            <i class="ti-target"></i>
+                                            <span class="menu-title">Import Data ODP</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="./import_port.html">
+                                            <i class="ti-target"></i>
+                                            <span class="menu-title">Import Data Port ODP</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="./search-data.html">
+                                            <i class="ti-target"></i>
+                                            <span class="menu-title">Search Data ODP</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <footer id="footer">
+            <div class="hide-fixed pull-right pad-rgt">
+                <div class="pull-right pad-rgt">Last Update UIM : <strong>22 April 2020 01:30:11</strong></div>
+            </div>
+            <p class="pad-lft">&#0169; 2020 Regional Access Management Regional VI, Telkom Indonesia</p>
+            <div class="pull-right pad-rgt">Last Update : <strong>22 April 2020 01:30:11</strong></div>
+        </footer>
+        <button class="scroll-top btn">
+            <i class="pci-chevron chevron-up"></i>
+        </button>
+    </div>
+    <div id="modal-help" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title" id="myLargeModalLabel">Bantuan Import Data ODP Dalapa</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-semibold text-main">Penjelasan Import Data ODP</p>
+                <p>
+                    Fitur Import Data ODP ini digunakan untuk mengirimkan data yang sudah valid sebelumnya untuk dimasukkan kedalam sistem Dalapa.
+                    Proses Import Data ODP dieksekusi pada jam 23:59 agar tidak menggangu proses input harian.<br>
+                </p>
+                <p>
+                    <b>Informasi Deskripsi Tabel</b>
+                    <ul>
+                        <li><b>Tanggal Import</b> - Tanggal File dikirimkan.</li>
+                        <li><b>File</b> - Link File yang telah dikirimkan.</li>
+                        <li><b>Eksekutor</b> - Data Akun yang melakukan import data.</li>
+                        <li><b>Total Data ODP</b> - Jumlah Baris Data ODP yang akan diimport.</li>
+                        <li><b>Tereksekusi</b> - Total Baris Data ODP yang berhasil diimport.</li>
+                        <li><b>Error</b> - Total Baris Data ODP yang tidak berhasil diimport.</li>
+                        <li>
+                            <b>Status</b> : Keterangan Status ODP
+                            <ul>
+                                <li><span class="label label-mint">Menunggu Kalkulasi</span> (File menunggu untuk proses perhitungan data)</li> 
+                                <li><span class="label label-info">Menunggu Eksekusi</span> (Silahkan pilih <b>START</b> Dalam <b>Action</b> Import)</li> 
+                                <li><span class="label label-dark">Dalam Antrian</span> (File menunggu untuk proses eksekusi import)</li> 
+                                <li><span class="label label-warning">Sedang di Eksekusi</span> (File sedang dalam proses import)</li> 
+                                <li><span class="label label-danger">Kesalahan</span> (Terjadi Kesalahan dengan import, Silahkan hubungi Administrator)</li> 
+                                <li><span class="label label-success">Berhasil</span> (Import Data berhasil dieksekusi)</li> 
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p class="text-semibold text-main">Ketentuan Format ODP</p>
+                <p>Seluruh Kolom Excel diinputkan dengan format Text untuk meminimalisir ketidakcocokan data akibat format yang berbeda.</p>
+                <ul>
+                    <li>Witel - Diisi dengan Kode Witel (SMR, PTK, BJM, BPN, TRK, PLK)</li>
+                    <li>ODP Location - Diisi lengkap dengan pemisah <b>" - "</b> dan <b>" / "</b>, contoh : ODP-SMR-FDJ/010</li>
+                    <li>Latitude - Diisi sesuai dengan format koordinat, contoh : -1.2563456</li>
+                    <li>Longitude - Diisi sesuai dengan format koordinat, contoh : 116.123293</li>
+                    <li>Tanggal Update - Diisi dengan format Tanggal d-M-Y, contoh : 01-12-2019</li>
+                    <li>Isi - Diisi Angka sesuai kapasitas isi ODP</li>
+                    <li>Kosong - Diisi Angka sesuai kapasitas Port Kosong ODP</li>
+                    <li>Total - Diisi Total Kapasitas ODP</li>
+                    <li>QR Code ODP - Diisi QR Code ODP yang Valid</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-warning" type="button">Kembali</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-form" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title" id="myLargeModalLabel">Upload File Import</h4>
+            </div>
+            <form action="#" class="form-horizontal form-padding" method="POST" enctype="multipart/form-data" id="formUploadFile">
+                <div class="modal-body">
+                    <p>Silahkan browse file XLSX untuk dapat diimpor kedalam Sistem.</p>
+                    <input type="hidden" name="id" value="2169">
+                    <input type="hidden" name="level" value="">
+                    <input type="hidden" name="type_import" value="1">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="demo-text-input">File ODP</label>
+                        <div class="col-md-10">
+                            <input type="file" name="file_import" required>
+                            <small class="help-block">File Excel ODP Berekstensi XLSX</small>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="progress"><div style="width: 0%;" class="progress-bar progress-bar-info" id="progressBar">0%</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="doUploadForm">Upload</button>
+                    <button data-dismiss="modal" class="btn btn-warning" type="button">Kembali</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="model-detail-report" class="modal fade">
+    <div class="modal-dialog modal-lg" style="width:90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title" id="myLargeModalLabel">Tabel Data Import</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered" id="table-data-report">
+                            <thead>
+                                <tr>
+                                    <th style="white-space: nowrap;width:1px;">#</th>
+                                    <th>ODP Location</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                    <th>Tanggal Update</th>
+                                    <th>Isi</th>
+                                    <th>Kosong</th>
+                                    <th>Total</th>
+                                    <th>QR Code ODP</th>
+                                    <th>Status</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://dalapa.id/assets/js/jquery.min.js"></script>
+    <script src="https://dalapa.id/assets/js/bootstrap.min.js"></script>
+    <script src="https://dalapa.id/assets/js/nifty.min.js"></script>
+    <script>
+    let BASE_URL_API = "https://dalapa.id/api/";
+    let BASE_URL = "https://dalapa.id/";
+    </script>
+     <script src="https://dalapa.id/assets/plugins/loadingOverlay/loadingoverlay.min.js"></script>
+     <script>
+         $.ajaxSetup({
+            headers: {
+                'Authorization':$('meta[name=account]').attr('data'),
+                'AuthWitel':$('meta[name=witel]').attr('data')
+            }
+        });
+         $(document).ajaxStart(function () {
+             $.LoadingOverlay("show");
+         }).ajaxComplete(function () {
+             $.LoadingOverlay("hide");
+         });
+     </script>
+     <script src="https://dalapa.id/assets/plugins/datatables/media/js/jquery.dataTables.js"></script>
+<script src="https://dalapa.id/assets/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+<script src="https://dalapa.id/assets/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+<script src="https://dalapa.id/assets/plugins/datatables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+<script src="https://dalapa.id/assets/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+<script src="https://dalapa.id/assets/plugins/bootbox/bootbox.min.js"></script>
+<script>
+    let id = $('meta[name=acc]').attr('content');
+    let level = $('meta[name=level]').attr('content');
+    let doUpload = $('#doUploadForm');
+    let formUpload = $('#formUploadFile');
+    let tbodyImportODP = $('#table-body-import-odp');
+    let tableImportOdp = $('#table-import-odp');
+    let Auth = $('meta[name=account]').attr('data');
+    let dataTableImportOdp = null;
+
+    let tableDataReport = null;
+    $(document).ready(function(){
+        initData();
+    });
+    doUpload.click(function(){
+        var form = document.getElementById('formUploadFile');
+        var formData = new FormData(form);
+        $.ajax({
+            xhr : function() {
+				var xhr = new window.XMLHttpRequest();
+				xhr.upload.addEventListener('progress', function(e){
+					if(e.lengthComputable){
+						var percent = Math.round((e.loaded / e.total) * 100);
+						$('#progressBar').css('width', percent + '%').text(percent + '%');
+					}
+				});
+				return xhr;
+			},
+            url: `https://dalapa.id/api/import/add`,
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            beforeSend:function(){
+                $.LoadingOverlay("hide");
+            },
+            success: function(res){
+                console.table(res);
+                if(res.status){
+                    $.niftyNoty({
+                        type: 'success',
+                        container : 'floating',
+                        title : 'Information',
+                        message : res.message,
+                        closeBtn : false,
+                        timer : 3000
+                    });
+                    tableImportOdp.DataTable().ajax.reload(null,true);
+                    $('#modal-form').modal('hide');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                console.log('xhr :'+xhr);
+                console.log('ajaxOptions :'+ajaxOptions);
+                console.log('thrownError :'+thrownError);
+            }
+        });
+    });
+    $(document).on('click','.startProses',function(){
+        let id = $(this).attr('data-id');
+        $.post(BASE_URL_API + 'import/start',{'id_importer':id},function(res){
+            $.niftyNoty({
+                type: 'success',
+                container : 'floating',
+                title : 'Information',
+                message : res.message,
+                closeBtn : false,
+                timer : 3000
+            });
+        }).done(function(){
+            tableImportOdp.DataTable().ajax.reload(null,true);
+        });
+    });
+    $(document).on('click','.cancelProses',function(){
+        let id = $(this).attr('data-id');
+        $.post(BASE_URL_API + 'import/cancel',{'id_importer':id},function(res){
+            $.niftyNoty({
+                type: 'success',
+                container : 'floating',
+                title : 'Information',
+                message : res.message,
+                closeBtn : false,
+                timer : 3000
+            });
+        }).done(function(){
+            tableImportOdp.DataTable().ajax.reload(null,true);
+        });
+    });
+    $(document).on('click','.cancelStart',function(){
+        let id = $(this).attr('data-id');
+        $.post(BASE_URL_API + 'import/cancel',{'id_importer':id},function(res){
+            $.niftyNoty({
+                type: 'success',
+                container : 'floating',
+                title : 'Information',
+                message : res.message,
+                closeBtn : false,
+                timer : 3000
+            });
+        }).done(function(){
+            tableImportOdp.DataTable().ajax.reload(null,true);
+        });
+    });
+    $(document).on('click','.deleteProses',function(){
+        let id = $(this).attr('data-id');
+        bootbox.dialog({
+            message: "<h4>Apakah anda yakin ingin menghapus data ini ?</h4>",
+            buttons: {
+                success: {
+                    label: 'Iya',
+                    className: 'btn-success',
+                    callback: function() {
+                        $.post(BASE_URL_API + 'import/delete',{'auth': Auth, 'id_importer':id},function(data){
+                            if (data.status) {
+                                $.niftyNoty({
+                                    type: 'success',
+                                    container : 'floating',
+                                    title : 'Information',
+                                    message : data.message,
+                                    closeBtn : false,
+                                    timer : 3000
+                                });
+                                tableImportOdp.DataTable().ajax.reload(null,true);
+                            }
+                            else {
+                                $.niftyNoty({
+                                    type: 'danger',
+                                    container : 'floating',
+                                    title : 'Information',
+                                    message : data.message,
+                                    closeBtn : false,
+                                    timer : 3000
+                                });
+                            }
+                        });
+                    }
+                },
+                cancel: {
+                    label: 'Tidak',
+                    className: 'btn-danger'
+                }
+            }
+        });
+    });
+    $(document).on('click','.detailError',function(){
+        let id = $(this).attr('data-id');
+        let type = 2;
+        loadReport(type,id);
+    });
+    $(document).on('click','.detailExecute',function(){
+        let id = $(this).attr('data-id');
+        let type = 1;
+        loadReport(type,id);
+    });
+    $(document).on('click','.detailTotal',function(){
+        let id = $(this).attr('data-id');
+        let type = "ALL";
+        loadReport(type,id);
+    });
+
+
+    function initData(){
+        if (dataTableImportOdp != null) {
+            dataTableImportOdp.destroy();
+        }
+        dataTableImportOdp = tableImportOdp.DataTable({
+            ajax: BASE_URL_API + 'import/get/1',
+            processing: true,
+            serverSide: true,
+            autoWidth: false,
+            responsive: true,
+            language: {
+                "paginate": {
+                    "previous": '<i class="ti-angle-left"></i>',
+                    "next": '<i class="ti-angle-right"></i>'
+                }
+            },
+            columns: [
+                { data: 'date_import' },
+                {
+                    data: 'file',
+                    render: function(data,type,row){
+                        return `<a href="${BASE_URL + 'import_data/'+data}" class="label label-success label-custom">Preview</a>`;
+                    }
+                },
+                { data: 'workforce_name' },
+                {
+                    data: 'total',
+                    render: function(data, type, row){
+                    		return `<center><a href="#" class="btn-link detailTotal" data-id="${row['id_importer']}"><u>${(data ? data : '-')}</u></a></center>`;
+                  	}
+                },
+                {
+                    data: 'executed',
+                    render: function(data, type, row){
+                  		  return `<center><a href="#" class="btn-link detailExecute" data-id="${row['id_importer']}"><u>${(data ? data : '-')}</u></a></center>`;
+                  	}
+                },
+                {
+                    data: 'error',
+                    render: function(data, type, row){
+                  		  return `<center><a href="#" class="btn-link detailError" data-id="${row['id_importer']}"><u>${(data ? data : '-')}</u></a></center>`;
+                  	}
+                },
+                {
+                    data: 'status_import',
+                    render: function(data, type, row){
+                    		switch (data) {
+                      		  case '0':
+                      			   return `<span class="label label-mint label-custom">Menunggu Kalkulasi</span>`;
+                      			   break;
+                      		  case '1':
+                      			   return `<span class="label label-info label-custom">Menunggu Proses Import</span>`;
+                      			   break;
+                      		  case '2':
+                      			   return `<span class="label label-dark label-custom">Dalam Antrian</span>`;
+                      			   break;
+                      		  case '3':
+                      			   return `<span class="label label-warning label-custom">Sedang di Eksekusi</span>`;
+                      			   break;
+                      		  case '4':
+                      			   return `<span class="label label-success label-custom">Berhasil</span>`;
+                      			   break;
+                      		  case '5':
+                      			   return `<span class="label label-danger label-custom">Kesalahan</span>`;
+                      			   break;
+                    		}
+                	  }
+                },
+                {
+                    data: 'status_import',
+                    render: function(data, type, row){
+                        let button  = ``;
+                        if (Auth == row['id_workforce']) {
+                            button = `<button class="btn btn-danger btn-xs deleteProses" data-id="${row['id_importer']}">Hapus</button>`;
+                        }
+                    		switch (data) {
+                      		  case '1':
+                      			   button = button+`<button class="btn btn-success btn-xs startProses" data-id="${row['id_importer']}">Mulai</button>`;
+                      			   break;
+                      		  case '2':
+                      			   button = button+`<button class="btn btn-warning btn-xs cancelProses" data-id="${row['id_importer']}">Batal</button>`;
+                      			   break;
+                            default:
+                                break;
+                    		}
+                        return button;
+                	  }
+                }
+            ]
+        });
+    }
+    function loadReport(type,id){
+        if(tableDataReport!=null){
+            tableDataReport.destroy();
+        }
+        tableDataReport = $('#table-data-report').DataTable({
+            dom: 'lBfrtip',
+            buttons: [
+                {
+                    text: 'Export CSV', action: function ( e, dt, node, config ) { window.open(tableDataReport.ajax.url()+"/csv"); }
+                },
+                {
+                    text: 'Export XLSX', action: function ( e, dt, node, config ) { window.open(tableDataReport.ajax.url()+"/xlsx"); }
+                }
+            ],
+            ajax: BASE_URL_API +'import/report/odp/'+type+'/'+id,
+            processing: true,
+            serverSide: true,
+            autoWidth: false,
+            responsive: true,
+            language: {
+                "paginate": {
+                    "previous": '<i class="ti-angle-left"></i>',
+                    "next": '<i class="ti-angle-right"></i>'
+                }
+            },
+            columnDefs: [{
+                "targets": 'no-sort',
+                "orderable": false,
+            }],
+            columns: [
+                {data: 'witel'},
+                {data: 'odp_location'},
+                {data: 'latitude'},
+                {data: 'longitude'},
+                {data: 'tanggal_update'},
+                {data: 'isi'},
+                {data: 'kosong'},
+                {data: 'total'},
+                {data: 'qr_code_odp'},
+                {data: 'status',
+                    render: function (data, type, row) {
+                        if(data==1){
+                            return `<center><button class="btn btn-success btn-xs">Success</button></center>`;
+                        }else{
+                            return `<center><button class="btn btn-danger btn-xs">Failed</button></center>`;
+                        }
+                    }
+                },
+                {data: 'description'}
+            ]
+        });
+        $('#model-detail-report').modal('show');
+    }
+</script>
+</body>
+</html>
